@@ -23,7 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 DateEntry widget
 """
 
-
+import sys
+import platform as p2
 from sys import platform
 try:
     import tkinter as tk
@@ -337,7 +338,7 @@ class DateEntry(ttk.Entry):
                 self._top_cal.attributes('-topmost', False)
             self._top_cal.geometry('+%i+%i' % (x, y))
             self._top_cal.deiconify()
-            if (platform.system() != "Darwin" or (sys.version_info < (3,9))):
+            if (p2.system() != "Darwin" or (sys.version_info < (3,9))):
                 self._calendar.focus_set()
             self._calendar.selection_set(date)
 
